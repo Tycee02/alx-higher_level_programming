@@ -6,6 +6,6 @@ Thestring = "Last digit of {} is {}".format(number, lastdigit)
 if lastdigit > 5:
     print(f"{Thestring} and is greater than 5")
 elif lastdigit == 0:
-    print(f"{Thestring} and is zero")
+    print(f"{Thestring} and is 0")
 else:
     print(f"{Thestring} and is less than 6 and not 0")
