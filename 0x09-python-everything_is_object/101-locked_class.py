@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 class LockedClass:
-    """A locked class that only lets the user dynamically create the instance
-    attribute 'first_name'"""
-    __slots__ = ['first_name']
+    def __setattr__(self, name, value):
+        if not hasattr(self, 'first_name') and name != 'first_name':
+            raise AttributeError(f"Cannot create attribute '{name}'. Only 'first_name' allowed.")
+        super().__setattr__(name, value)
