@@ -37,7 +37,7 @@ class Rectangle(Base):
         """
         try:
             assert isinstance(value, int)
-        except AssertionError:
+        except Exception as e:
             raise TypeError("width must be an integer.")
         if value <= 0:
             raise ValueError("Width must be > 0")
@@ -60,7 +60,7 @@ class Rectangle(Base):
         """
         try:
             assert isinstance(value, int)
-        except AssertionError:
+        except Exception as e:
             raise TypeError("height must be an integer.")
         if value <= 0:
             raise ValueError("Height must be > 0.")
@@ -83,7 +83,7 @@ class Rectangle(Base):
         """
         try:
             assert isinstance(value, int)
-        except AssertionError:
+        except Exception as e:
             raise TypeError("x must be an integer.")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -106,7 +106,7 @@ class Rectangle(Base):
         """
         try:
             assert isinstance(value, int)
-        except AssertionError:
+        except Exception as e:
             raise TypeError("y must be an integer.")
         if value < 0:
             raise ValueError("y must be >= 0")
