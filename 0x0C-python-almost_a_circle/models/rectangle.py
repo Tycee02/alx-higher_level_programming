@@ -35,10 +35,13 @@ class Rectangle(Base):
         Parameters:
         value (int): The new value for the width.
         """
-        if value >= 0:
-            self.__width = value
-        else:
-            raise ValueError("Width must be a non-negative value.")
+        try:
+            assert isinstance(value, int)
+        except AssertionError:
+            raise TypeError("width must be an integer.")
+        if value <= 0:
+            raise ValueError("Width must be > 0")
+        self.__width = value
 
     @property
     def height(self):
@@ -55,10 +58,13 @@ class Rectangle(Base):
         Parameters:
         value (int): The new value for the height.
         """
-        if value >= 0:
-            self.__height = value
-        else:
-            raise ValueError("Height must be a non-negative value.")
+        try:
+            assert isinstance(value, int)
+        except AssertionError:
+            raise TypeError("height must be an integer.")
+        if value <= 0:
+            raise ValueError("Height must be > 0.")
+        self.__height = value
 
     @property
     def x(self):
@@ -75,6 +81,12 @@ class Rectangle(Base):
         Parameters:
         value (int): The new value for the x-coordinate.
         """
+        try:
+            assert isinstance(value, int)
+        except AssertionError:
+            raise TypeError("x must be an integer.")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -92,4 +104,10 @@ class Rectangle(Base):
         Parameters:
         value (int): The new value for the y-coordinate.
         """
+        try:
+            assert isinstance(value, int)
+        except AssertionError:
+            raise TypeError("y must be an integer.")
+        if value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
