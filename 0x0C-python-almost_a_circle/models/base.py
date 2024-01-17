@@ -42,3 +42,26 @@ otherwise, a new identifier is generated.
             return "[]"
         else:
             return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Writes JSON representation to a file.
+        """
+        file_name = cls.__name__ + ".json"
+        new_list = []
+        if list_objs is not None:
+            for i in list_objs:
+                new_list.append(cls.to_dictionary(i))
+        with open(file_name, 'w') as json_file:
+            json_file.write(cls.to_json_string(new_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Returns a list of JSON string representation.
+        """
+        if json_string is None:
+            return []
+        else:
+            return json.loads(json_string)
