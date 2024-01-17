@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """base.py"""
+import json
 
 
 class Base:
