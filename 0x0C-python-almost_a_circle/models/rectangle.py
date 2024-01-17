@@ -162,3 +162,17 @@ printing empty lines, leading spaces, and # characters.
 
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Function that returns the dictionary representation
+        of a rectangle
+        """
+        my_dict = {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
+        return my_dict
