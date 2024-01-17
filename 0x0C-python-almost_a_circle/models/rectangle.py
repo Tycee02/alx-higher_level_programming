@@ -33,11 +33,9 @@ class Rectangle(Base):
         Setter method for the width attribute.
 
         Parameters:
-        value (int): The new value for the width.
+        value (int): width of rectangle
         """
-        try:
-            assert isinstance(value, int)
-        except Exception as e:
+        if type(value) is not int:
             raise TypeError("width must be an integer.")
         if value <= 0:
             raise ValueError("Width must be > 0")
@@ -58,9 +56,7 @@ class Rectangle(Base):
         Parameters:
         value (int): The new value for the height.
         """
-        try:
-            assert isinstance(value, int)
-        except Exception as e:
+        if type(value) is not int:
             raise TypeError("height must be an integer.")
         if value <= 0:
             raise ValueError("Height must be > 0.")
@@ -81,9 +77,7 @@ class Rectangle(Base):
         Parameters:
         value (int): The new value for the x-coordinate.
         """
-        try:
-            assert isinstance(value, int)
-        except Exception as e:
+        if type(value) is not int:
             raise TypeError("x must be an integer.")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -104,9 +98,7 @@ class Rectangle(Base):
         Parameters:
         value (int): The new value for the y-coordinate.
         """
-        try:
-            assert isinstance(value, int)
-        except Exception as e:
+        if type(value) is not int:
             raise TypeError("y must be an integer.")
         if value < 0:
             raise ValueError("y must be >= 0")
@@ -147,21 +139,19 @@ printing empty lines, leading spaces, and # characters.
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute"""
-        if args:
-            for i, j in enumerate(args):
-                if i == 0:
-                    self.id = j
-                elif i == 1:
-                    self.width = j
-                elif i == 2:
-                    self.height = j
-                elif i == 3:
-                    self.x = j
-                elif i == 4:
-                    self.y = j
-
+        if len(args) == 0:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                self.__setattr__(key, value)
+            return
+
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass
 
     def to_dictionary(self):
         """
