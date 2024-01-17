@@ -67,3 +67,16 @@ or keyword arguments.
             self.y = args[3]
         except IndexError:
             pass
+
+    def to_dictionary(self):
+        """
+        Function that returns the dictionary representation
+of a square
+        """
+        my_dict = {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
+        }
+        return my_dict
