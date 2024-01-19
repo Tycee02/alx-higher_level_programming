@@ -25,7 +25,7 @@ class Rectangle(Base):
         """
         Getter method for the width attribute.
         """
-        return self.width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -35,11 +35,11 @@ class Rectangle(Base):
         Parameters:
         value (int): width of rectangle
         """
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer.")
         if value <= 0:
             raise ValueError("Width must be > 0")
-        self.width = value
+        self.__width = value
 
     @property
     def height(self):
