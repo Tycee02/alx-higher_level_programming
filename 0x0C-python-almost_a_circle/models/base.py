@@ -65,3 +65,33 @@ otherwise, a new identifier is generated.
             return []
         else:
             return json.loads(json_string)
+
+    def update(self, *args, **kwargs):
+        """
+        Update the instance attributes with the provided values.
+
+        Parameters:
+        - *args: Positional arguments.
+        - **kwargs: Keyword arguments.
+        """
+        if args:
+            for key, value in zip(self.__dict__.keys(), args):
+                setattr(self, key, value)
+        if kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Create an instance of the class with attributes set from the provided dictionary.
+
+        Parameters:
+        - **dictionary: Double pointer to a dictionary containing attribute names and values.
+
+        Returns:
+        - Instance of the class with attributes set.
+        """
+        instance = cls.__new__(cls)
+        instance.update(**dictionary)
+        return instance
