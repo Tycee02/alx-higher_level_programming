@@ -95,3 +95,25 @@ otherwise, a new identifier is generated.
         instance = cls.__new__(cls)
         instance.update(**dictionary)
         return instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Load instances from a JSON file and return a list of instances.
+
+        Returns:
+        - List of instances of the current class.
+        """
+        filename = f"{cls.__name__}.json"
+        try:
+            with open(filename, 'r') as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            return []  # Return an empty list if the file doesn't exist
+
+        instance_list = []
+        for obj_dict in data:
+            instance = cls.create(**obj_dict)
+            instance_list.append(instance)
+
+        return instance_list
