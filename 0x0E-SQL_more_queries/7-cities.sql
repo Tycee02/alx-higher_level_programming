@@ -3,7 +3,7 @@
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 
 -- create table 'cities' in the database 'hbtn_0d_usa'
--- description: id INT, auto generated, not null and primary key
+-- description: id INT unique, auto generated, not null and primary key
 --state_id INT, not null, foreign key and reference to id of states table
 -- name VARCHAR(256) not NULL
 
