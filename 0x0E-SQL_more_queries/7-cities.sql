@@ -4,7 +4,7 @@ CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 
 -- create table 'cities' in the database 'hbtn_0d_usa'
 -- description: id INT unique, auto generated, not null and primary key
---state_id INT not null, foreign key and reference id of 'states' table
+--state_id INT not null, foreign key that references id of 'states' table
 -- name VARCHAR(256) not NULL
 
 CREATE TABLE IF NOT EXISTS hbtn_0d_usa.cities(
@@ -13,4 +13,4 @@ CREATE TABLE IF NOT EXISTS hbtn_0d_usa.cities(
     name VARCHAR(256) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (state_id)
-            REFERENCES hbtn_0d_usa.states(id));
+		REFERENCES hbtn_0d_usa.states(id));
