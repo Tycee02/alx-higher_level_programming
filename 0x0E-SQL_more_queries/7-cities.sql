@@ -1,16 +1,18 @@
--- create a database 'hbtn_0d_usa'
--- If the table states already exists, your script should not fail
+-- Create db 'hbtn_0d_usa'
+-- If db already exists, script should not fail
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 
--- create table 'cities' in the database 'hbtn_0d_usa'
--- description: id INT unique, auto generated, not null and primary key
---state_id INT not null, foreign key that references id of 'states' table
--- name VARCHAR(256) not NULL
-
-CREATE TABLE IF NOT EXISTS hbtn_0d_usa.cities(
-    id INT UNIQUE AUTO_INCREMENT NOT NULL,
-    state_id INT NOT NULL,
-    name VARCHAR(256) NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (state_id)
-		REFERENCES hbtn_0d_usa.states(id));
+-- Create table 'cities' in db 'hbtn_0d_usa'
+-- id INT unique, auto generated, not null, primary key
+-- state_id INT not null, foreign key that references id of 'states' table
+-- name VARCHAR(256) not null
+-- If table already exists, script should not fail
+CREATE TABLE IF NOT EXISTS hbtn_0d_usa.cities
+(
+	id INT UNIQUE AUTO_INCREMENT NOT NULL,
+	state_id INT NOT NULL,
+	name VARCHAR(256) NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (state_id)
+		REFERENCES hbtn_0d_usa.states(id)
+);
