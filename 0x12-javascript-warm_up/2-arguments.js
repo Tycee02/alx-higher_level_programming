@@ -7,5 +7,5 @@ if (countArgs === 0) {
 } else if (countArgs === 1) {
   console.log('Argument found');
 } else {
-  console.log('Argument found');
+  console.log('Arguments found');
 }
