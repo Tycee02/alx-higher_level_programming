@@ -3,7 +3,7 @@
 const firstArg = process.argv[2];
 const secondArg = process.argv[3];
 
-if (firstArg === undefined || secondArg === undefined) {
+if (firstArg === undefined && secondArg === undefined) {
   console.log('undefined is undefined');
 } else if (secondArg === undefined) {
   console.log(`${firstArg} is undefined`);
