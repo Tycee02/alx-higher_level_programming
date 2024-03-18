@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-"""lists all states from the database hbtn_0e_0_usa, the script should take 3 arguments
-Script should connect to a MySQL server, and sorted i ascending ordee by states.id
+"""List all states from a given db sorted in ascending order by id
+Username, password, and database names are given as user args
 """
-
 import sys
-import MySQL
+import MySQLdb
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(host='localhost', user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3], port=3306)
+    db = MySQLdb.connect(user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3],
+                         host='localhost',
+                         port=3306)
     cur = db.cursor()
-    cur.execute("SELECT id, name FROM states ORDER by id ASC")
+    cur.execute("SELECT id, name FROM states ORDER BY id ASC")
     allStates = cur.fetchall()
 
     for state in allStates:
