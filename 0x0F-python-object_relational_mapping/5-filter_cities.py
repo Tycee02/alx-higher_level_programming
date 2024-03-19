@@ -23,7 +23,7 @@ if __name__ == "__main__":
     cur.execute(cmd)
     allCities = cur.fetchall()
 
-    for city in  allCities:
+    for city in allCities:
         print(city)
 
     cur.close()
