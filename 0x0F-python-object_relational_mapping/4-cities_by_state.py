@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""List all cities from a given db sorted in ascending order by id
-Username, password, and database names are given as user args
+"""List all cities from the db
+Username, password, and database name given as user args
+Can only use execute() once
+Sort ascending order by cities.id
 """
 import sys
 import MySQLdb
@@ -12,11 +14,15 @@ if __name__ == "__main__":
                          host='localhost',
                          port=3306)
     cur = db.cursor()
-    cur.execute("SELECT id, name FROM cities ORDER BY id ASC")
+    cmd = """SELECT cities.id, cities.name, states.name
+         FROM states
+         INNER JOIN cities ON states.id = cities.state_id
+         ORDER BY cities.id ASC"""
+    cur.execute(cmd)
     allCities = cur.fetchall()
 
-    for cities in allCities:
-        print(cities)
+    for city in allCities:
+        print(city)
 
     cur.close()
     db.close()
