@@ -23,8 +23,7 @@ if __name__ == "__main__":
     cur.execute(cmd, (sys.argv[4]))
     allCities = cur.fetchall()
 
-    for city in allCities:
-        print(city)
+    print(", ".join([city[0] for city in allCities]))
 
     cur.close()
     db.close()
