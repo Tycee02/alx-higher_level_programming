@@ -14,7 +14,7 @@ if __name__ == "__main__":
                          host='localhost',
                          port=3306)
     cur = db.cursor()
-    cmd = """ SELECT cities.id, cities.name, states.name
+    cmd = """ SELECT cities.id, cities.name
           FROM states
           INNER JOIN cities ON state.id = cities.states_id
           WHERE states.name=%s
