@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""Take the name of argument and list all cities of state
-given the db in ascending order by id
+"""List all cities from the db by given state
 Username, password, database name, and state name given as user args
+Can only use execute() once
+Sort ascending order by cities.id
 """
 import sys
 import MySQLdb
@@ -22,7 +23,7 @@ if __name__ == "__main__":
     cur.execute(cmd)
     allCities = cur.fetchall()
 
-    for city i  allCities:
+    for city in  allCities:
         print(city)
 
     cur.close()
