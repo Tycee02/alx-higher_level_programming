@@ -1,7 +1,15 @@
 #!/usr/bin/python3
-"""List all state object from the db
-Username, password, database name, and state name given as user arg
-Sort ascending order by cities.id
+"""
+Module: list_states.py
+
+This module lists all state objects from the database.
+It expects the following arguments:
+- Username
+- Password
+- Database name
+- State name
+
+The states are sorted in ascending order by their ids.
 """
 
 from sys import argv
