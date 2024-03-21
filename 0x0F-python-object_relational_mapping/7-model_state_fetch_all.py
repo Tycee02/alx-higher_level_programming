@@ -9,6 +9,9 @@ from sqlalchemy import ceate_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
+    """
+    Access to the database and get the states from database
+    """
     engine = create_engine(
             'mysql+mysqldb://{}:{}@localhost/{}'.format(
                 sys.argv[1], sys.argv[2], sys.argv[3]))
