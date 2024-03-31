@@ -8,5 +8,6 @@ with urllib.request.urlopen(url) = response:
     body = response.read().decode('utf-8')
 
 print("- Body response:")
-print("\t- type_", type(body))
-print("\t- content:", body)
+print("\t- type_ {}".format(type(body)))
+print("\t- content: {}".format(content))
+print("\t- utf8 content: {}".format(content.decode('utf-8')))
