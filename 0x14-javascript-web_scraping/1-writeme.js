@@ -2,12 +2,12 @@
 
 const fs = require('fs');
 
-const writeStringToFile = (filePath) => {
-  fs.writeFile(filePath, content, 'utf8', (err, data) => {
+const writeStringToFile = (filePath, cotent) => {
+  fs.writeFile(filePath, content, { encoding: 'utf8' }, (err) => {
     if (err) {
       console.error('An error occured:', err);
     } else {
-      console.log(data);
+      console.log('File has been successfully written.');
     }
   });
 };
