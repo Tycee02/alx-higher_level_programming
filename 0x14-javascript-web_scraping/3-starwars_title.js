@@ -19,7 +19,7 @@ request.get(apiUrl, (error, response, body) => {
   } else {
     try {
       const movie = JSON.parse(body);
-      console.log('Title:', movie.title);
+      console.log(movie.title);
     } catch (parseError) {
       console.error('Error parsing response:', parseError);
     }
