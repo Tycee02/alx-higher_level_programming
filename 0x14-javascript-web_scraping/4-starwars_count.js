@@ -19,8 +19,15 @@ request.get(apiUrl, (error, response, body) => {
   } else {
     try {
       const films = JSON.parse(body).results;
-      const moviesWithWedgeAntilles = films.filter((film) => film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`));
-      console.log(moviesWithWedgeAntilles.length);
+      let count = 0;
+
+      films.forEach((film) => {
+        if (film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)) {
+          count++;
+        }
+      });
+
+      console.log(count);
     } catch (parseError) {
       console.error('Error parsing response:', parseError);
     }
