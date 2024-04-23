@@ -20,8 +20,6 @@ request.get(url, (error, response, body) => {
     fs.writeFile(filePath, body, { encoding: 'utf8' }, (err) => {
       if (err) {
         console.error('Error writing to file:', err);
-      } else {
-        console.log('Webpage content has been successfully written to', filePath);
       }
     });
   }
