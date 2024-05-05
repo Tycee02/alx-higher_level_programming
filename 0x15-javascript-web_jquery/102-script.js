@@ -1,4 +1,5 @@
 // script that fetches and prints how to say “Hello” depending on the language
+// Api service should be use
 
 $('document').ready(function () {
   const url = 'https://www.fourtonfish.com/hellosalut/?';
